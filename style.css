@@ -6,7 +6,7 @@
 .main_Container{
 	display: grid;
 	grid-template-columns: 100%;
-	grid-auto-rows: ;
+	grid-template-rows: 165px auto auto 100px;
 	grid-template-areas:
 		"header"
 		"navigation"
@@ -16,13 +16,32 @@
 
 }
 
-	.header{
-		display: flex;
-		grid-area: header;
-		padding: 10px;
+	.header_sections{
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-template-rows: 100px 1fr;
+		grid-template-areas:
+			"logo"
+			"nav_bar";
+		border: 1px solid red;
 		margin: 5px;
-		min-height: 150px;
 	}
+		.logo_area{
+			type: flex;
+			flex-direction: row;
+			grid-area: logo;
+		}
+		.nav_area {
+			grid-area:nav_bar;
+			type: flex;
+			margin: 0;
+			text-align: center;
+ 			justify-content: center;
+			flex-flow: center wrap;
+		}
+        .nav_area a { 
+			text-decoration: none;
+		}
 
 	.navigation{
 		display: flex;
