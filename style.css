@@ -18,7 +18,8 @@
 
 	.header_sections{
 		display: grid;
-		grid-auto-columns: 1fr;
+		grid-area: header;
+		grid-template-columns: 100%;
 		grid-template-rows: 100px 1fr;
 		grid-template-areas:
 			"logo"
@@ -27,21 +28,29 @@
 		margin: 5px;
 	}
 		.logo_area{
-			type: flex;
+			display: flex;
 			flex-direction: row;
 			grid-area: logo;
 		}
 		.nav_area {
+			display: flex;
+			flex-direction: row;
 			grid-area:nav_bar;
-			type: flex;
 			margin: 0;
 			text-align: center;
- 			justify-content: center;
-			flex-flow: center wrap;
+ 			justify-content: space-between;
+			flex-grow: 1;
+			align-items: stretch;
+			align-content: stretch;
 		}
         .nav_area a { 
 			text-decoration: none;
 		}
+.nav_item{
+	border: 2px solid red;
+	flex-grow: 1;
+	padding: 15px
+}
 
 	.navigation{
 		display: flex;
@@ -66,11 +75,11 @@
 		min-height:50px;
 	}
 
-@media(min-width:600px){
+@media (min-width:600px){
 	.main_Container{
 		display: grid;
 		grid-template-columns: 32.5% 32.5% 35%;
-		grid-auto-rows: 300px 600px 150px;
+		grid-template-rows: 320px 600px 150px;
 		grid-template-areas:
 			"header header header"
 			"featured featured navigation"
@@ -79,6 +88,19 @@
 		border: 2px solid yellow;
 		max-width: 1200px;
 		margin: 0 auto;
-
+	}
+}
+@media (min-width:600px){
+		.header_sections{
+		display: grid;
+		grid-area: header;
+		grid-template-columns: 100%;
+		grid-template-rows: 125px 125px auto;
+		grid-template-areas:
+			"logo logo logo"
+			"logo logo logo"
+			"nav_bar nav_bar nav_bar";
+		border: 2px solid blue;
+		margin: 5px;
 	}
 }
